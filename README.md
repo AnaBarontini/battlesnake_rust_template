@@ -34,14 +34,21 @@ Você **não** precisa instalar Terraform nem AWS CLI: quem cuida do deploy é o
 2. Aguarde cerca de **1 minuto** e confira em
    [Repositórios da organização](https://github.com/orgs/Maua-Dev/repositories).
 
-3. Clone e compile:
+3. Clone, compile e rode os testes:
    ```bash
    git clone https://github.com/Maua-Dev/Nome_Do_Seu_Repositorio
    cd Nome_Do_Seu_Repositorio
    cargo build
+   cargo test
    ```
 
+   O `cargo test` tem que passar antes de você mexer em qualquer coisa — é o
+   mesmo comando que o GitHub Actions roda, e é ele que libera o deploy.
+
 4. Abra [`src/logic.rs`](src/logic.rs) e comece a programar sua cobra 🐍
+
+> 🚀 **O deploy acontece por push na branch `dev`.** Push em qualquer outra
+> branch roda só os testes e a compilação, sem tocar na AWS.
 
 ---
 
